@@ -7,9 +7,17 @@ import Gallery from './components/Gallery'
 import RSVP from './components/RSVP'
 import Envelope from './components/Envelope'
 import Footer from './components/Footer'
+import Dashboard from './components/Dashboard'
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(true)
+  
+  // Simple routing
+  const isDashboard = window.location.pathname === '/daftar-tamu'
+
+  if (isDashboard) {
+    return <Dashboard />
+  }
 
   return (
     <div className="bg-background text-on-surface font-body selection:bg-secondary-container">
