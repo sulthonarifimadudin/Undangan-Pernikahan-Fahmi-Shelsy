@@ -30,6 +30,10 @@ export default function Footer() {
         <span>•</span>
         <a className="hover:text-primary transition-colors" href="#">Privacy Policy</a>
       </div>
+
+      <div className="text-[10px] font-body text-on-surface-variant opacity-40 pt-4 uppercase tracking-[0.2em]">
+        Digital Invitation by <span className="font-bold text-primary hover:opacity-80 transition-opacity">Este</span>
+      </div>
     </footer>
   )
 }
