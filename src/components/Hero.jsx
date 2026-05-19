@@ -1,7 +1,15 @@
 import { motion } from 'framer-motion'
 import coverImg from '../assets/cover.jpg'
 
-export default function Hero() {
+export default function Hero({ onOpen }) {
+  const handleBuka = (e) => {
+    e.preventDefault()
+    if (onOpen) onOpen()
+    setTimeout(() => {
+      document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
+  }
+
   return (
     <section className="relative h-screen w-full flex flex-col items-center justify-center text-center overflow-hidden" id="home">
       {/* Background Image */}
@@ -53,9 +61,9 @@ export default function Hero() {
           02 . 06 . 2026
         </motion.p>
         
-        <motion.a 
-          class="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-full font-body text-sm tracking-widest hover:bg-primary/90 transition-all active:scale-95 shadow-lg" 
-          href="#quote"
+        <motion.button 
+          onClick={handleBuka}
+          className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-full font-body text-sm tracking-widest hover:bg-primary/90 transition-all active:scale-95 shadow-lg cursor-pointer" 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.8 }}
@@ -63,8 +71,8 @@ export default function Hero() {
           whileTap={{ scale: 0.95 }}
         >
           BUKA UNDANGAN
-          <span class="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
-        </motion.a>
+          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+        </motion.button>
       </motion.div>
     </section>
   )
